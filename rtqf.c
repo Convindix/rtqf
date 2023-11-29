@@ -314,7 +314,7 @@ int isInTQF(uint64 N){ //N of the form x**2 + y**2 + 10*z**2
 }
 
 int main(){
-	uint64 N = 19999999991; // Total, must be initialized to something 1 mod 10
+	uint64 N = 30000000001; // Total, must be initialized to something 1 mod 10
 	while(N < MAXSAFE){ //Every 10k+5 is in TQF, so unrolled loop that avoids 5 mod 10
 		if(!isInTQF(N)){
 			break;
