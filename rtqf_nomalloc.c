@@ -1,6 +1,6 @@
 #include <stdio.h>
 //#include <stdint.h>
-//#include <malloc.h>
+//#include <stdlib.h>
 //#include "libdivide.h"
 
 #define MAXSAFE (uint64)0x7FFFFFFFFFFFFFFF
