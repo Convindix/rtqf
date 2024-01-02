@@ -191,8 +191,7 @@ uint64 pRhoSingleFactor(uint64 n){ //One factor via Pollard rho
 
 uint64* pollardRho(uint64 n){
         int maxLength = intLog(n); //To avoid recalculating
-        uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //+1 
-used later
+        uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //TODO: Remove +1?
         int i = 0;
         if(maxLength == 64){
                 maxLength = 63;
@@ -322,7 +321,7 @@ int isInTQF(uint64 N){ //N of the form x**2 + y**2 + 10*z**2
 }
 
 int main(){
-	uint64 N = 30000000001; // Total, must be initialized to something 1 mod 10
+	uint64 N = 35000000001; // Total, must be initialized to something 1 mod 10
 	while(N < MAXSAFE){ //Every 10k+5 is in TQF, so unrolled loop that avoids 5 mod 10
 		if(!isInTQF(N)){
 			break;
