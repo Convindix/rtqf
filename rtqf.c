@@ -190,20 +190,28 @@ uint64 pRhoSingleFactor(uint64 n){ //One factor via Pollard rho
 }
 
 uint64* pollardRho(uint64 n){
-	int maxLength = intLog(n); //To avoid recalculating
-	uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //+1 used later
-	int i = 0;
-	while(n > 1 && i < maxLength){ //Write to factorization
-		factors[i] = pRhoSingleFactor(n);
-		n /= factors[i];
-		i++;
-	}
-	while(i < maxLength){ //Pad to length floor(log_2(n)) if necessary
-		factors[i] = 1;
-		i++;
-	}
-	factors[i] = 0; //Mark end of factor list with 0
-	return factors;
+        int maxLength = intLog(n); //To avoid recalculating
+        uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //+1 
+used later
+        int i = 0;
+        if(maxLength == 64){
+                maxLength = 63;
+        }
+        while(n > 1 && i < maxLength){ //Write to factorization
+                factors[i] = pRhoSingleFactor(n);
+                n /= factors[i];
+                i++;
+        }
+        if(n == 1){ //Mark end of factor list with 0
+                factors[i] = 0;
+        }
+        i++;
+        while(i < maxLength){ //Fill rest of list with 1s
+                factors[i] = 1;
+                i++;
+        }
+        factors[i] = 0; //Ensure 0 in list
+        return factors;
 }
 
 void debugDisplayArray(uint64* arr, int length){
