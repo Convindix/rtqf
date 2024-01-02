@@ -202,7 +202,7 @@ uint64* pollardRho(uint64 n){
 		factors[i] = 1;
 		i++;
 	}
-	factors[i] = 0; //Mark end of factor list with 1
+	factors[i] = 0; //Mark end of factor list with 0
 	return factors;
 }
 
