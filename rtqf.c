@@ -191,7 +191,7 @@ uint64 pRhoSingleFactor(uint64 n){ //One factor via Pollard rho
 
 uint64* pollardRho(uint64 n){
         int maxLength = intLog(n); //To avoid recalculating
-        uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //TODO: Remove +1?
+        uint64* factors = (uint64*)malloc(maxLength * sizeof(uint64) + 1); //+1 used for marking end
         int i = 0;
         if(maxLength == 64){
                 maxLength = 63;
