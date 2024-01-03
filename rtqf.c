@@ -111,7 +111,7 @@ int intLog(uint64 n){
 int millerRabin(uint64 n){
 	//Use bases <=37, enough for correctness on inputs <2^64 (https://math.stackexchange.com/a/2481258)
 	if(n > MAXSAFE){
-		printf("n is 2**63 or larger, this may give incorrect answers! Happened in millerRabin with n=%llu\n", n);
+		printf("n is 2**63 or larger, this may give incorrect answers! (n=%llu)\n", n);
 	}
 	const uint64 bases[12] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
 	uint64 x;
