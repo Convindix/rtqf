@@ -342,7 +342,7 @@ int main(){
 		//printf("%llu in TQF\n", N);
 		N += 2;
 		if(N % 1024 == 1){
-			printf("Everything up to %llu in TQF\n", N);
+			printf("Everything up to %llu fits conjecture\n", N);
 		}
 	};
 	printf("Counterexample! %llu. The Generalized Riemann Hypothesis is false.\n", N);
